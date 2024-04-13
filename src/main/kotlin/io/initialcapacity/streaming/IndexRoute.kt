@@ -1,13 +1,14 @@
 package io.initialcapacity.streaming
 
+import io.initialcapacity.streaming.messages.MessageProvider
 import io.ktor.http.*
 import io.ktor.server.application.*
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
+import kotlinx.coroutines.runBlocking
 import kotlinx.html.*
-import kotlin.time.Duration
 
-fun Route.index(delay: Duration) {
+fun Route.index(messageProvider: MessageProvider) {
     get("/") {
         call.respondTextWriter(ContentType.Text.Html, HttpStatusCode.OK) {
             layout {
@@ -33,10 +34,13 @@ fun Route.index(delay: Duration) {
                     }
                 }
                 flush()
-                Thread.sleep(delay.inWholeMilliseconds)
+                val messages = runBlocking { messageProvider.fetchAll() }
                 div {
                     attributes["slot"] = "content"
                     h2 { +"Success!" }
+                    ul(classes = "bulleted") {
+                        messages.forEach { li { +it } }
+                    }
                 }
             }
         }

@@ -1,5 +1,6 @@
 package io.initialcapacity.streaming
 
+import io.initialcapacity.streaming.messages.MessageProvider
 import io.ktor.server.application.*
 import io.ktor.server.engine.*
 import io.ktor.server.http.content.*
@@ -9,8 +10,9 @@ import kotlin.time.Duration
 import kotlin.time.Duration.Companion.seconds
 
 fun Application.module(delay: Duration) {
+    val provider = MessageProvider(delay)
     routing {
-        index(delay)
+        index(provider)
         staticResources("images", "images")
         staticResources("styles", "styles")
     }
