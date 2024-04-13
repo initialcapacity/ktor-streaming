@@ -16,7 +16,7 @@ class Layout : Template<HTML> {
                 content = "width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
             )
 
-            link(rel = "stylesheet", href = "/styles/application.css")
+            applicationStyles()
             link(rel = "icon", href = "/images/favicon.ico") { sizes = "48x48" }
             link(rel = "icon", href = "/images/favicon.svg") { sizes = "any"; type = "image/svg+xml" }
 
@@ -59,6 +59,11 @@ class Layout : Template<HTML> {
             }
         }
     }
+
+}
+
+fun FlowOrMetaDataOrPhrasingContent.applicationStyles() {
+    link(rel = "stylesheet", href = "/styles/application.css")
 }
 
 fun Writer.layout(content: FlowContent.() -> Unit) {

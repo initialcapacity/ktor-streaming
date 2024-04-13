@@ -14,6 +14,6 @@ class ApplicationTest {
 
         assertEquals(HttpStatusCode.OK, response.status)
         assertContains(response.bodyAsText(), "Streaming HTML")
-        assertContains(response.bodyAsText(), "More content")
+        assertContains(response.bodyAsText(), "Success!")
     }
 }
