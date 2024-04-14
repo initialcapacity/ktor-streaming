@@ -1,5 +1,6 @@
 package io.initialcapacity.streaming
 
+import io.initialcapacity.streaming.templatesupport.useTag
 import io.ktor.server.html.*
 import kotlinx.html.*
 import kotlinx.html.stream.appendHTML

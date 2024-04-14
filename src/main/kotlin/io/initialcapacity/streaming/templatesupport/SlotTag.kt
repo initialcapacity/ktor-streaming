@@ -1,4 +1,4 @@
-package io.initialcapacity.streaming
+package io.initialcapacity.streaming.templatesupport
 
 import kotlinx.html.*
 

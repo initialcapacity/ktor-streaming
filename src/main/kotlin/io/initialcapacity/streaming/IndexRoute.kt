@@ -1,6 +1,8 @@
 package io.initialcapacity.streaming
 
 import io.initialcapacity.streaming.messages.MessageProvider
+import io.initialcapacity.streaming.templatesupport.slot
+import io.initialcapacity.streaming.templatesupport.template
 import io.initialcapacity.streaming.waitfor.waitFor
 import io.ktor.http.*
 import io.ktor.server.application.*
