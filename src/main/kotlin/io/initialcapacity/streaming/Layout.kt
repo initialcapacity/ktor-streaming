@@ -32,7 +32,7 @@ class Layout : Template<HTML> {
                             useTag("/images/icons.svg#logo")
                         }
                     }
-                    li { +"Streaming HTML" }
+                    li { h1 { +"Streaming HTML" } }
                 }
             }
             footer {
@@ -45,10 +45,9 @@ class Layout : Template<HTML> {
                     }
                 }
                 span {
-                    +"©"
                     script(type = ScriptType.textJavaScript) {
                         unsafe {
-                            raw("document.write(new Date().getFullYear());")
+                            raw("""document.write("©" + new Date().getFullYear());""")
                         }
                     }
                     +"Initial Capacity, Inc."
