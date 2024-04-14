@@ -3,6 +3,7 @@ package test.initialcapacity.streaming.waitfor
 import io.initialcapacity.streaming.waitfor.waitFor
 import kotlinx.coroutines.async
 import kotlinx.coroutines.channels.Channel
+import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 import java.io.Writer
 import kotlin.test.Test
@@ -16,10 +17,10 @@ class WaitForTest {
         val writer = TestWriter()
 
         writer.write("Start")
-        val waited = async { writer.write(writer.waitFor(message)) }
+        val waited = launch { writer.write(writer.waitFor(message)) }
 
         messages.send("End")
-        waited.await()
+        waited.join()
         assertEquals(listOf("Start", "flush", "End"), writer.actions)
     }
 }
