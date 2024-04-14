@@ -3,7 +3,6 @@ package test.initialcapacity.streaming.waitfor
 import io.initialcapacity.streaming.waitfor.waitFor
 import kotlinx.coroutines.async
 import kotlinx.coroutines.channels.Channel
-import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 import java.io.Writer
 import kotlin.test.Test
