@@ -18,7 +18,7 @@ fun Route.index(messageProvider: MessageProvider) {
         call.respondTextWriter(ContentType.Text.Html, HttpStatusCode.OK) {
             layout {
                 template {
-                    applicationStyles()
+                    globalStyles()
 
                     section {
                         h1 {
